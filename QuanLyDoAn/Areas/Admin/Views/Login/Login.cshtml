@@ -1,0 +1,16 @@
+﻿@model QuanLyDoAn.Models.UserAdmin
+
+<tbody>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+
+        <div>
+
+            Username : @Html.TextBoxFor(m => m.Username)
+        </div>
+
+        <div> Password : @Html.TextBoxFor(m => m.Password)</div>
+        <input type="submit" value=" Login" />
+    }
+
+</tbody>

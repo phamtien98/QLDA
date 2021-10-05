@@ -1,0 +1,40 @@
+﻿
+@{
+    var data = (IList<QuanLyDoAn.Chung.SinhVienModel>)ViewBag.Sinhvien;
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="table-control">
+    <a href="@Url.Action("Create","GiangVien")" class="btn btn-dark px-5">Create</a>
+    <table class="table table-striped table-bordered table-hover mt-1">
+        <thead>
+            <tr class="thead-dark">
+                <th>STT</th>
+                <th>Họ Tên </th>
+                <th>Lớp</th>
+                <th>Đề Tài</th>
+                <th>Giảng Viên Hướng Dẫn</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int i = 0;}
+            @foreach (var item in data)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@item.name</td>
+                    <td>@item.deTai</td>
+                    <td>@item.giangVienHuongDan</td>
+                    <td class="button-w">
+                        <button class="btn btn-dark">Edit</button>
+                        <a class="btn btn-dark ml-2" href="@Url.Action("Delete","GiangVien", new {id = @item.msv})">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

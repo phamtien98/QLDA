@@ -1,0 +1,43 @@
+﻿@model QuanLyDoAn.Models.GiangVien
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "GiangVien", FormMethod.Post))
+
+{
+    <div class="input-group pl-1 h-25">
+
+
+    </div>
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Tên Giảng Viên: </span>
+        </div>
+        @Html.TextBoxFor(m => m.TenGv)
+    </div>
+    <div class="input-group pl-1 h-25">
+
+        <span>Khoa </span>
+        </div>
+        @Html.DropDownList("IdKhoa", (IEnumerable<SelectListItem>)ViewBag.list, new { @class = "form-control" })
+
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Email </span>
+        </div>
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Phone: </span>
+        </div>
+        @Html.TextBoxFor(m => m.Phone)
+    </div>
+    <input class="btn btn-dark px-4 ml-2" type="submit" value="Create" />
+
+
+}
+

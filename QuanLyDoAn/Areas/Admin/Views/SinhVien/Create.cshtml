@@ -1,0 +1,66 @@
+﻿@model Tuple<QuanLyDoAn.Models.UserSinhVien, QuanLyDoAn.Models.QuanLyDeTai>
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "SinhVien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Mã Sinh Viêm: </span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.Msv)
+    </div>
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Họ Và Tên: </span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.Fullname)
+    </div>
+    <div class="input-group pl-1 h-25">
+
+        <span>Lớp  </span>
+    </div>
+    @Html.DropDownList("IdLop", (IEnumerable<SelectListItem>)ViewBag.list, new { @class = "form-control" })
+
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Giới Tính </span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.Gender)
+    </div>
+    <div class="input-group pl-1 w-50 h-25">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ngày Sinh </span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.BithDate)
+        <div class="input-group-prepend">
+            <span class="input-group-text">Địa Chỉ </span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.Address)
+        <div class="input-group-prepend">
+            <span class="input-group-text">Email</span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.Email)
+        <div class="input-group-prepend">
+            <span class="input-group-text">Phone </span>
+        </div>
+        @Html.TextBoxFor(m => m.Item1.Phone)
+        <div class="input-group-prepend">
+            <span class="input-group-text">Tên Đề Tài </span>
+        </div>
+        @Html.TextAreaFor(m => m.Item2.TenDeTai)
+        <div class="input-group-prepend">
+            <span class="input-group-text">Mô tả</span>
+        </div>
+        @Html.TextAreaFor(m => m.Item2.MoTa)
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ngày Sinh </span>
+        </div>
+    </div>
+    <input class="btn btn-dark px-4 ml-2" type="submit" value="Create" />
+
+}
+
